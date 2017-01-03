@@ -32,7 +32,7 @@ package demo.com.sam.demofactory.java;
 //                  不见满街漂亮妹，哪个归得程序员？
 
 /**
- * 正则: http://www.jianshu.com/p/27c8b26faa9b
+ * 正则: http://www.jianshu.com/p/ae353d39f484
  * java： http://blog.csdn.net/cclovett/article/details/12448843
  *
  * @author SamWang(199004)
