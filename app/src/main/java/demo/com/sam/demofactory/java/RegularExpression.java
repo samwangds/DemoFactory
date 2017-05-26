@@ -31,6 +31,9 @@ package demo.com.sam.demofactory.java;
 //                  别人笑我忒疯癫，我笑自己命太贱；
 //                  不见满街漂亮妹，哪个归得程序员？
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * 正则: http://www.jianshu.com/p/ae353d39f484
  * java： http://blog.csdn.net/cclovett/article/details/12448843
@@ -40,7 +43,25 @@ package demo.com.sam.demofactory.java;
  */
 public class RegularExpression {
     public static void main(String[] args) {
+        stringMath();
 
+    }
+
+    /**
+     * 字符串匹配
+     */
+    private static void stringMath(){
+        Pattern pattern = Pattern.compile("\\d+");//提取其中的数字
+        Matcher matcher = pattern.matcher("xx1xx(485894)");
+        while(matcher.find()) {
+            System.out.println("------------------------------------------");
+            String val = matcher.group();
+            System.out.println(val);
+        }
+    }
+
+
+    private static void boringTest(){
         /**
          * 测试单个字符
          * +：匹配字符的一次或多次出现
@@ -135,15 +156,11 @@ public class RegularExpression {
         System.out.print("\n                            `=---='");
         System.out.print("\n\n\n");
         System.out.print("         .............................................");
-//
     }
 
 
-
     private static void printMathResult(String regularExpression, String original, String replace) {
-
         System.out.print(original.replaceAll(regularExpression, replace));
-
     }
 
 
