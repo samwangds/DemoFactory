@@ -6,11 +6,13 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
-import demo.com.sam.demofactory.util.py.HanziToPinyin;
+import demo.com.sam.demofactory.java.TimeZoneTest;
+
+import static demo.com.sam.demofactory.java.TimeZoneTest.formatDate;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,9 +32,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Log.e("py",HanziToPinyin.getInstance().getPinYin("中说来话长"));
-        Log.e("py",HanziToPinyin.getInstance().getPinYin("afsd长"));
-        Log.e("py",HanziToPinyin.getInstance().getPinYin("afs#d x长"));
+
+        long beiJingTime = TimeZoneTest.getBeiJingTime(System.currentTimeMillis());
+        Log.e("Sam", "MainActivity onCreate " + formatDate(System.currentTimeMillis(),"yyyy-MM-dd HH:mm",null));
+        Log.e("Sam", "MainActivity onCreate " + formatDate(beiJingTime,"yyyy-MM-dd HH:mm",null));
+        Log.e("Sam", "MainActivity onCreate " + formatDate(beiJingTime,"yyyy-MM-dd HH:mm","GMT+8"));
+
+
     }
 
     @Override

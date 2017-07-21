@@ -16,6 +16,8 @@ public class RegularExpression2 {
         printResult(p,"<img src=\"/images/small/37aserww23.gif\" width=\"19\" height=\"19\" />");
         printResult(p,"<img src=\"/images/small/3q253aszzsdd7.gif\" width=\"19\" height=\"19\" />");
 
+//        "[\u4E00-\u9FA5]+" 匹配中文
+
     }
 
 
