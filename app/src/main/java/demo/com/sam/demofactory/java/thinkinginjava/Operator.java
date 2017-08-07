@@ -12,9 +12,27 @@ public class Operator {
     public static void main(String[] arg) {
         Operator operator = new Operator();
 //        operator.bitwiseOperators();
-        operator.practive13();
+        for (int i : operator.returnInts()) {
+            System.out.println(i);
+
+        }
+
+
     }
 
+    private int[] returnInts() {
+        System.out.println("return int ");
+        return new int[]{1, 2, 3};
+    }
+
+
+    private void someVaule() {
+        System.out.println("-----一些常量");
+        System.out.println("0 " +Integer.toBinaryString(0));
+        System.out.println("max " +Integer.toBinaryString(Integer.MAX_VALUE));
+        System.out.println("min " +Integer.toBinaryString(Integer.MIN_VALUE));
+        System.out.println("size " +Integer.SIZE +" , " +Integer.toBinaryString(Integer.MIN_VALUE).length());
+    }
 
     /**
      * 按位操作符 ->练习10
@@ -34,6 +52,7 @@ public class Operator {
         System.out.println("a^b " +Integer.toBinaryString(a^b));
         System.out.println("~a " +Integer.toBinaryString(~a));
         System.out.println("~b " +Integer.toBinaryString(~b));
+
     }
 
     private void practice11(){
@@ -73,6 +92,13 @@ public class Operator {
         Scanner scanner = new Scanner(System.in);
         char c = scanner.next().charAt(0);//控制台输入
         System.out.println(Integer.toBinaryString(c));
+    }
+
+    private void outflow(){
+        //测试数据 溢出
+        int i = Integer.MAX_VALUE;
+        System.out.println(i);
+        System.out.println(i*4);
     }
 
 
