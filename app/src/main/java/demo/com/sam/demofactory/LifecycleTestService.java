@@ -2,6 +2,7 @@ package demo.com.sam.demofactory;
 
 import android.app.Service;
 import android.content.Intent;
+import android.os.Binder;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -15,11 +16,18 @@ import android.util.Log;
 public class LifecycleTestService extends Service {
 
     private TestThread mTestThread;
+    private final IBinder mBinder = new MyBinder();
+
+    public class MyBinder extends Binder{
+        LifecycleTestService getServices(){
+            return LifecycleTestService.this;
+        }
+    }
 
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
-        return null;
+        return mBinder;
     }
 
     @Override
