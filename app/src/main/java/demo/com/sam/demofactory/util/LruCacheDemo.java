@@ -17,7 +17,7 @@ public class LruCacheDemo {
             }
         };
 
-        lruCache.put("key",bitmap);
+//        lruCache.put("key",bitmap);
         lruCache.get("key");
 
     }
