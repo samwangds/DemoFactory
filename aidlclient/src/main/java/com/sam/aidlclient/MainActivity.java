@@ -7,6 +7,7 @@ import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -28,6 +29,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         textView = (TextView) findViewById(R.id.tv);
         textView.setOnClickListener(this);
+
+        textView.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                new AlertDialog.Builder(MainActivity.this).create().show();
+            }
+        }, 5000);
     }
 
     @Override

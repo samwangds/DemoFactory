@@ -1,4 +1,4 @@
-package demo.com.sam.demofactory;
+package demo.com.sam.demofactory.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,9 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+
+import demo.com.sam.demofactory.R;
+import demo.com.sam.demofactory.activity.launchmode.ActivityA;
 
 public class ActivityLifeCycleTest extends AppCompatActivity {
 
@@ -19,7 +22,9 @@ public class ActivityLifeCycleTest extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ActivityLifeCycleTest.this,ActivityLifeCycleTest.class));
+                final Intent intent = new Intent(ActivityLifeCycleTest.this, ActivityA.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
             }
         });
 
@@ -66,5 +71,11 @@ public class ActivityLifeCycleTest extends AppCompatActivity {
     public void recreate() {
         super.recreate();
         Log.i("Sam", "ActivityLifeCycleTest recreate "+this);
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        Log.i("Sam", "ActivityLifeCycleTest onNewIntent ");
     }
 }
