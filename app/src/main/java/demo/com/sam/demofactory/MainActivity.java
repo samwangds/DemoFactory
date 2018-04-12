@@ -23,6 +23,7 @@ import java.util.List;
 
 import demo.com.sam.demofactory.activity.ActivityLifeCycleTest;
 import demo.com.sam.demofactory.activity.launchmode.ActivityA;
+import demo.com.sam.demofactory.activity.launchmode.RecyclerViewTest;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
@@ -100,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
 //            data.add(new Pair<String, Class>("录屏测试", ScreenRecorderActivity.class));
             data.add(new Pair<String, Class>("Activity生命周期", ActivityLifeCycleTest.class));
             data.add(new Pair<String, Class>("LaunchModelSingleTask", ActivityA.class));
+            data.add(new Pair<String, Class>("RecyclerView 测试 ", RecyclerViewTest.class));
         }
 
         @Override
