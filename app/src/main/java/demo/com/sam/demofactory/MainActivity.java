@@ -1,11 +1,11 @@
 package demo.com.sam.demofactory;
 
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.os.StrictMode;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
@@ -28,12 +28,14 @@ import demo.com.sam.demofactory.activity.launchmode.RecyclerViewTest;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
-
+    public static Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().detectAll().penaltyLog().build());
-        StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder().detectAll().penaltyLog().build());
+
+//        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().detectAll().penaltyLog().build());
+//        StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder().detectAll().penaltyLog().build());
+
         long l = System.currentTimeMillis();
         setContentView(R.layout.activity_main);
         Log.e("Sam", "MainActivity onCreate strictmode " +(System.currentTimeMillis() - l));
