@@ -29,11 +29,17 @@ import demo.com.sam.demofactory.activity.launchmode.RecyclerViewTest;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
-
+    public static Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+//        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().detectAll().penaltyLog().build());
+//        StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder().detectAll().penaltyLog().build());
+
+        long l = System.currentTimeMillis();
         setContentView(R.layout.activity_main);
+        Log.e("Sam", "MainActivity onCreate strictmode " +(System.currentTimeMillis() - l));
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -60,17 +66,7 @@ public class MainActivity extends AppCompatActivity {
      * 可测试service的生命周期
      */
     private void testLifecycleTestService() {
-        final ServiceConnection serviceConnection= new ServiceConnection() {
-            @Override
-            public void onServiceConnected(ComponentName name, IBinder service) {
-                Log.e("Sam", "MainActivity onServiceConnected ");
-            }
-
-            @Override
-            public void onServiceDisconnected(ComponentName name) {
-                Log.e("Sam", "MainActivity onServiceDisconnected ");
-            }
-        };
+        final ServiceConnection serviceConnection = new MyServiceConnection();
         bindService(new Intent(this, LifecycleTestService.class), serviceConnection,BIND_AUTO_CREATE);
         startService(new Intent(this, LifecycleTestService.class));
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -81,6 +77,17 @@ public class MainActivity extends AppCompatActivity {
 //                unbindService(serviceConnection);
             }
         });
+    }
+    static class MyServiceConnection implements ServiceConnection {
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            Log.e("Sam", "MainActivity onServiceConnected ");
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            Log.e("Sam", "MainActivity onServiceDisconnected ");
+        }
     }
 
     @Override

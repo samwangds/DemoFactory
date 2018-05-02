@@ -28,6 +28,7 @@ public class ActivityLifeCycleTest extends AppCompatActivity {
             }
         });
 
+//        MainActivity.context = this;
 
     }
 
