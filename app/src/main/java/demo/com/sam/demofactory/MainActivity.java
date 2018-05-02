@@ -1,6 +1,7 @@
 package demo.com.sam.demofactory;
 
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.util.Pair;
 import android.view.LayoutInflater;
@@ -40,6 +42,18 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(new MyAdapter());
 
 
+    }
+
+    /**
+     * 获取手机IMEI号
+     *
+     * 需要动态权限: android.permission.READ_PHONE_STATE
+     */
+    public static String getIMEI(Context context) {
+        TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(context.TELEPHONY_SERVICE);
+        String imei = telephonyManager.getDeviceId();
+
+        return imei;
     }
 
     /**

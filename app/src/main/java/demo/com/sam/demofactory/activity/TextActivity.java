@@ -26,7 +26,7 @@ public abstract class TextActivity  extends BaseActivity implements View.OnClick
         tv.setOnClickListener( this );
         setText(tv);
 
-        }
+    }
 
     protected abstract void setText(TextView tv);
 }
