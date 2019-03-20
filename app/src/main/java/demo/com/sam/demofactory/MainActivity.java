@@ -1,5 +1,6 @@
 package demo.com.sam.demofactory;
 
+import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -24,8 +25,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import demo.com.sam.demofactory.activity.ActivityLifeCycleTest;
+import demo.com.sam.demofactory.activity.CustomViewActivity;
 import demo.com.sam.demofactory.activity.launchmode.ActivityA;
 import demo.com.sam.demofactory.activity.launchmode.RecyclerViewTest;
+import demo.com.sam.demofactory.view.CustomView;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
@@ -90,27 +93,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
 
     class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
@@ -123,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
             data.add(new Pair<String, Class>("Activity生命周期", ActivityLifeCycleTest.class));
             data.add(new Pair<String, Class>("LaunchModelSingleTask", ActivityA.class));
             data.add(new Pair<String, Class>("RecyclerView 测试 ", RecyclerViewTest.class));
+            data.add(new Pair<String, Class>("自定义view ", CustomViewActivity.class));
         }
 
         @Override
