@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import demo.com.sam.demofactory.view.RectRoundView;
 import demo.com.sam.demofactory.view.ScaleView;
 import demo.com.sam.demofactory.view.ShadowView;
 
@@ -14,7 +15,7 @@ public class CustomViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(testSacleView());
+        setContentView(testRectRoundView());
 
     }
 
@@ -26,6 +27,12 @@ public class CustomViewActivity extends AppCompatActivity {
 
     private View testSacleView() {
         ScaleView view = new ScaleView(this);
+        setLayout(view);
+        return view;
+    }
+
+    private View testRectRoundView() {
+        RectRoundView view = new RectRoundView(this);
         setLayout(view);
         return view;
     }
