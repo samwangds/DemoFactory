@@ -5,7 +5,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
-import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.support.annotation.Nullable;
@@ -39,7 +38,7 @@ public class RectRoundView extends View {
      * 带描边的路径
      */
     private Path path;
-    private Rect rect;
+    private RectF rect;
     /**
      * 上下左右 是否有圆角
      */
@@ -59,22 +58,41 @@ public class RectRoundView extends View {
         paint.setColor(Color.BLACK);
         paint.setStyle(Paint.Style.STROKE);
         paint.setStrokeWidth(0.5f * density);
-        r = 2 * density - 0.5f;
-        rect = new Rect();
+        r = 2 * density;
+        rect = new RectF();
         path = new Path();
+    }
+
+    public Paint getPaint() {
+        return paint;
+    }
+
+    public void setFillStyle() {
+        paint.setStyle(Paint.Style.FILL);
+        paint.setStrokeWidth(0);
+    }
+
+    public void setStrokeWidth(int dpWidth) {
+        paint.setStrokeWidth(dpWidth * density);
+
     }
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
 
-        int cx = w / 2;
-        int cy = h / 2;
+//        int cx = w / 2;
+//        int cy = h / 2;
+//
+//        rect.left = cx - w/4;
+//        rect.right = cx + w/4;
+//        rect.top = cy - h/4;
+//        rect.bottom = cy + h/4;
 
-        rect.left = cx - w/4;
-        rect.right = cx + w/4;
-        rect.top = cy - h/4;
-        rect.bottom = cy + h/4;
+        rect.left = 0;
+        rect.right = w;
+        rect.top = 0;
+        rect.bottom = h;
 
         path.reset();
         float d = r * 2;
@@ -116,7 +134,8 @@ public class RectRoundView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawPath(path, paint);
+//        canvas.drawPath(path, paint);
 //        canvas.drawRect(rect, paint);
+        canvas.drawRoundRect(rect,r,r,paint);
     }
 }

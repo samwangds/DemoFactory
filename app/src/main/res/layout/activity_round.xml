@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <View
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:background="@drawable/selected_bg_with_corners"/>
+
+    <demo.com.sam.demofactory.view.RectRoundView
+        android:id="@+id/rectRoundView"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center" />
+
+
+  <!--  <demo.com.sam.demofactory.view.RectRoundView
+        android:id="@+id/rectRoundView2"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center" />-->
+
+
+
+<!-- shape 圆角 stroke 模式下，radius要减去stroke的 width，这样圆角才能完全重合 -->
+</FrameLayout>
