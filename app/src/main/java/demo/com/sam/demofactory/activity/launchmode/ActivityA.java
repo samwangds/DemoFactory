@@ -4,6 +4,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.sam.lib.app.BaseActivity;
+import com.sam.lib.utils.ScreenUtils;
 
 import demo.com.sam.demofactory.R;
 
@@ -20,11 +21,14 @@ public class ActivityA extends BaseActivity {
     protected void initView() {
         super.initView();
         TextView tv = (TextView) findViewById(R.id.tv);
+
+
         tv.setText("A");
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(ActivityB.class);
+                overridePendingTransition(R.anim.anim_rotate_in, R.anim.anim_rotate_out);
             }
         });
 

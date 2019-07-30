@@ -1,21 +1,14 @@
 package demo.com.sam.demofactory.activity;
 
-import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 
-import java.security.MessageDigest;
-
 import demo.com.sam.demofactory.R;
-import demo.com.sam.demofactory.view.PaintStyleTest;
+import demo.com.sam.demofactory.view.RoundRectMask;
 import demo.com.sam.demofactory.view.RectRoundView;
 import demo.com.sam.demofactory.view.ScaleView;
-import demo.com.sam.demofactory.view.ShadowLinearGradientView;
 import demo.com.sam.demofactory.view.ShadowView;
 
 
@@ -24,9 +17,9 @@ public class CustomViewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        testRoundCorners();
+//        testRoundCorners();
 
-//        setContentView(test());
+        setContentView(test());
 
 
 //        String androidID = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
@@ -50,7 +43,9 @@ public class CustomViewActivity extends AppCompatActivity {
 
 
     private View test() {
-        View view = new PaintStyleTest(this);
+        RoundRectMask view = new RoundRectMask(this);
+        view.setCornerRadiusDp(100);
+        view.setCorners(true,true,true,true);
         setLayout(view);
         return view;
 

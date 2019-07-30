@@ -29,7 +29,14 @@
         <activity android:name=".activity.ActivityLifeCycleTest"
             android:taskAffinity="a.b.c"
             />
-        <activity android:name=".activity.launchmode.ActivityA"/>
+
+        <activity android:name=".activity.launchmode.ActivityA"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".activity.launchmode.ActivityB"/>
         <activity android:name=".activity.launchmode.RecyclerViewTest" />
         <activity android:name=".activity.CustomViewActivity"
