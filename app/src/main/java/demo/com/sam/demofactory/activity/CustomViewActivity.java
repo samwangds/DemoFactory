@@ -19,7 +19,7 @@ public class CustomViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 //        testRoundCorners();
 
-        setContentView(test());
+        setContentView(testShadow());
 
 
 //        String androidID = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);

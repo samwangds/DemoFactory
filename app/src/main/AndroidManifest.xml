@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="demo.com.sam.demofactory">
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
     <uses-permission android:name="android.permission.CAPTURE_AUDIO_OUTPUT"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
@@ -46,6 +48,8 @@
             </intent-filter>
 
         </activity>
+        <activity android:name=".activity.livedata.ActivityA" />
+        <activity android:name=".activity.livedata.ActivityB" />
 
         <service android:name=".LifecycleTestService" />
     </application>

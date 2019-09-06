@@ -44,7 +44,7 @@ public class ShadowView extends View {
 
         paintShadow = new Paint(Paint.ANTI_ALIAS_FLAG);
         paintShadow.setColor(Color.BLACK);
-        paintShadow.setShadowLayer(20, 0, 10, Color.RED);
+        paintShadow.setShadowLayer(20, -20, 0, Color.RED);
 
         setLayerType(LAYER_TYPE_SOFTWARE, null);
 

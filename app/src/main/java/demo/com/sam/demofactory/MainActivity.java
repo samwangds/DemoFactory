@@ -106,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
             data.add(new Pair<String, Class>("LaunchModelSingleTask", ActivityA.class));
             data.add(new Pair<String, Class>("RecyclerView 测试 ", RecyclerViewTest.class));
             data.add(new Pair<String, Class>("自定义view ", CustomViewActivity.class));
+            data.add(new Pair<String, Class>("liveData ", demo.com.sam.demofactory.activity.livedata.ActivityA.class));
         }
 
         @Override
