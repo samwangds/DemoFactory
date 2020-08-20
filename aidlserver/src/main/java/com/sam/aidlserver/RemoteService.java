@@ -33,6 +33,19 @@ public class RemoteService extends Service{
         return iBinder;
     }
 
+    @Override
+    public boolean onUnbind(Intent intent) {
+        Log.i("Sam", "RemoteService onUnbind  false");
+        return false;
+    }
+
+    @Override
+    public void onRebind(Intent intent) {
+        super.onRebind(intent);
+        Log.i("Sam", "RemoteService onRebind");
+
+    }
+
     AidlRemote.Stub iBinder = new AidlRemote.Stub() {
         @Override
         public int getCount(List<TestModel> models) throws RemoteException {
@@ -47,4 +60,10 @@ public class RemoteService extends Service{
 
     };
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.i("Sam", "RemoteService onDestroy");
+
+    }
 }

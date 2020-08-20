@@ -31,6 +31,14 @@ public class LifecycleTestService extends Service {
     }
 
     @Override
+    public boolean onUnbind(Intent intent) {
+        boolean b = super.onUnbind(intent);
+        Log.e("Sam", "LifecycleTestService onUnbind " + b);
+
+        return b;
+    }
+
+    @Override
     public void onCreate() {
         super.onCreate();
         Log.e("Sam", "LifecycleTestService onCreate " + this);

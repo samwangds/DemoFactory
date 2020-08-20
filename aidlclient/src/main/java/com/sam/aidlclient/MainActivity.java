@@ -30,31 +30,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         textView = (TextView) findViewById(R.id.tv);
         textView.setOnClickListener(this);
 
-        textView.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                new AlertDialog.Builder(MainActivity.this).create().show();
-            }
-        }, 5000);
     }
 
+
     @Override
-    protected void onStart() {
-        super.onStart();
+    protected void onResume() {
+        super.onResume();
         bindService();
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
+    protected void onPause() {
+        super.onPause();
         unbindService();
     }
 
-    private void unbindService() {
-        unbindService(connection);
+    protected void unbindService() {
+//        unbindService(connection);
     }
 
-    private void bindService() {
+    protected void bindService() {
         // 获取到服务端
         Intent intent = new Intent();
         intent.setComponent(new ComponentName("com.sam.aidlserver", "com.sam.aidlserver.RemoteService"));
@@ -73,6 +68,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } catch (RemoteException e) {
             Log.e("Sam", "MainActivity onClick ",e);
         }
+
     }
 
     AidlRemote aidlRemote;
@@ -81,10 +77,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             aidlRemote = AidlRemote.Stub.asInterface(service);
+            Log.i("Sam", connection+" Client onServiceConnected " + service);
         }
 
         @Override
         public void onServiceDisconnected(ComponentName name) {
+            Log.i("Sam", "Client onServiceDisconnected " + connection);
             aidlRemote = null;
         }
     };
