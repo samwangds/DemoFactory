@@ -1,11 +1,17 @@
 package demo.com.sam.demofactory.activity;
 
+import android.graphics.Color;
+import android.graphics.PointF;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import demo.com.sam.demofactory.R;
+import demo.com.sam.demofactory.util.Utils;
+import demo.com.sam.demofactory.view.CubicBezierView;
 import demo.com.sam.demofactory.view.RoundRectMask;
 import demo.com.sam.demofactory.view.RectRoundView;
 import demo.com.sam.demofactory.view.ScaleView;
@@ -19,7 +25,7 @@ public class CustomViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 //        testRoundCorners();
 
-        setContentView(testShadow());
+        setContentView(testCurveView());
 
 
 //        String androidID = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
@@ -69,8 +75,25 @@ public class CustomViewActivity extends AppCompatActivity {
         return view;
     }
 
+    private View testCurveView() {
+        CubicBezierView view = new CubicBezierView(this);
+        view.getPoints().add(new PointF(0f, 0.1f));
+        view.getPoints().add(new PointF(0.25f, 0.25f));
+        view.getPoints().add(new PointF(0.5f, 0.5f));
+        view.getPoints().add(new PointF(1f, 1f));
+        view.setBackgroundColor(Color.BLACK);
+        view.setPointEvent(new CubicBezierView.Event() {
+            @Override
+            public void onEvent(float scaleX, float scaleY, int pointIndex) {
+                Log.i("Sam", scaleX + " , " + scaleY + ", " + pointIndex);
+            }
+        });
+        setLayout(view);
+        return view;
+    }
+
     private void setLayout(View view) {
-        view.setLayoutParams(new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT));
+        view.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, Utils.getDp(200)));
     }
 
 }

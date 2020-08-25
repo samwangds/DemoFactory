@@ -3,4 +3,13 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="white20">#31FFFFFF</color>
+
+
+    <array name="gradient_color">
+        <item>#ff5093ff</item>
+        <item>#ff34dcff</item>
+        <item>#fff9b0d8</item>
+    </array>
+
 </resources>
