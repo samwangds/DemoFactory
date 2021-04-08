@@ -15,6 +15,18 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".activity.ConstraintLayoutActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+        <service
+            android:name=".service.NoZuoNoDieService"
+            android:process=":whatever" />
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -28,17 +40,18 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.ScreenRecorderActivity" />
-        <activity
-            android:name=".activity.ActivityLifeCycleTest"
-            android:taskAffinity="a.b.c" />
+        <activity android:name=".activity.ActivityLifeCycleTest" />
         <activity
             android:name=".activity.launchmode.ActivityA"
-            android:exported="true">
+            android:allowTaskReparenting="true"
+            android:taskAffinity="a.b">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.launchmode.ActivityB" />
+        <activity android:name=".activity.launchmode.ActivityB"></activity>
         <activity android:name=".activity.launchmode.RecyclerViewTest" />
         <activity
             android:name=".activity.CustomViewActivity"

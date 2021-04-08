@@ -15,7 +15,9 @@ import android.view.View;
  * STROKE
  * FILL_AND_STROKE
  *
- * 测试 stroke width 影响; stroke 一半在图形内，一半在图形外
+ * 测试 stroke width 影响;
+ * stroke 一半在图形内，一半在图形外
+ *
  *
  * https://hencoder.com/ui-1-2/
  *
@@ -43,6 +45,7 @@ public class PaintStyleTest extends View {
     private Paint paintWithStroke;
     private Paint paintFillAndStroke;
     private Paint paintFillAndStrokeWidth;
+    private Paint paintFill;
     private Paint paintLine;
 
     void init() {
@@ -59,8 +62,10 @@ public class PaintStyleTest extends View {
         paintFillAndStroke.setStyle(Paint.Style.FILL_AND_STROKE);
 
         paintFillAndStrokeWidth = new Paint(paintFillAndStroke);
-        paintFillAndStrokeWidth.setStrokeWidth(20);
+        paintFillAndStrokeWidth.setStrokeWidth(20); //受 setStrokeWidth影响
 
+        paintFill = new Paint(paintFillAndStrokeWidth);
+        paintFill.setStyle(Paint.Style.FILL);
 
         paintLine = new Paint(Paint.ANTI_ALIAS_FLAG);
         paintLine.setColor(Color.RED);
@@ -95,6 +100,7 @@ public class PaintStyleTest extends View {
         drawRect(canvas, paintWithStroke);
         drawRect(canvas, paintFillAndStroke);
         drawRect(canvas, paintFillAndStrokeWidth);
+        drawRect(canvas, paintFill);
 
 
 

@@ -28,6 +28,7 @@ import demo.com.sam.demofactory.activity.ActivityLifeCycleTest;
 import demo.com.sam.demofactory.activity.CustomViewActivity;
 import demo.com.sam.demofactory.activity.launchmode.ActivityA;
 import demo.com.sam.demofactory.activity.launchmode.RecyclerViewTest;
+import demo.com.sam.demofactory.service.NoZuoNoDieService;
 import demo.com.sam.demofactory.view.CustomView;
 
 public class MainActivity extends AppCompatActivity {
@@ -49,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.rv);
 
         recyclerView.setAdapter(new MyAdapter());
+
+        startService(new Intent(this, NoZuoNoDieService.class));
 
 
     }

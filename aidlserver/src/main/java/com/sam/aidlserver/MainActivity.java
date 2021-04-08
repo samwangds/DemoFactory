@@ -10,6 +10,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         startService(new Intent(this, RemoteService.class));
+//        Intent intent = new Intent();
+//        intent.setClassName("demo.com.sam.demofactory", "demo.com.sam.demofactory.activity.launchmode.ActivityA");
+//        startActivity(intent);
     }
 
     @Override

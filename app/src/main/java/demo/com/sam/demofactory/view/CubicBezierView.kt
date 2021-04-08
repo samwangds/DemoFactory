@@ -5,10 +5,14 @@ import android.content.Context
 import android.content.res.Resources
 import android.graphics.*
 import android.util.AttributeSet
+import android.util.Log
 import android.util.TypedValue
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
+import android.view.ViewGroup
+import android.widget.FrameLayout
+import demo.com.sam.demofactory.util.dp
 import kotlin.math.pow
 import kotlin.math.sqrt
 
@@ -205,14 +209,10 @@ class CubicBezierView @JvmOverloads constructor(
             if (downPointIndex in 0 until points.size) {
                 val point = points.getOrNull(downPointIndex) ?: return false
 
-                val x =  if (downPointIndex > 0 && downPointIndex < points.size - 1) {
-                    //非首尾时更新改X的值
-                    val minX = points[downPointIndex - 1].width + radius
-                    val maxX = points[downPointIndex + 1].width - radius
-                    event.x.fitRange(minX, maxX)
-                } else {
-                    fitX(event.x)
-                }
+                val minX = points.getOrNull(downPointIndex - 1)?.width ?: 0 + radius
+                val maxX = points.getOrNull(downPointIndex + 1)?.width ?: width - radius
+                val x = event.x.fitRange(minX, maxX)
+
                 point.setWidth(x)
                 point.setHeight(fitY(event.y))
                 pointEvent?.onEvent(point.x, point.y, downPointIndex)

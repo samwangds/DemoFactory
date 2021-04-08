@@ -12,6 +12,7 @@ import android.widget.FrameLayout;
 import demo.com.sam.demofactory.R;
 import demo.com.sam.demofactory.util.Utils;
 import demo.com.sam.demofactory.view.CubicBezierView;
+import demo.com.sam.demofactory.view.PaintStyleTest;
 import demo.com.sam.demofactory.view.RoundRectMask;
 import demo.com.sam.demofactory.view.RectRoundView;
 import demo.com.sam.demofactory.view.ScaleView;
@@ -25,7 +26,7 @@ public class CustomViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 //        testRoundCorners();
 
-        setContentView(testCurveView());
+        setContentView(testPaintStyleTest());
 
 
 //        String androidID = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
@@ -71,6 +72,10 @@ public class CustomViewActivity extends AppCompatActivity {
 
     private View testRectRoundView() {
         RectRoundView view = new RectRoundView(this);
+        setLayout(view);
+        return view;
+    } private View testPaintStyleTest() {
+        View view = new PaintStyleTest(this);
         setLayout(view);
         return view;
     }
