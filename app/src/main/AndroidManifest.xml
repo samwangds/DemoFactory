@@ -55,6 +55,7 @@
         <activity android:name=".activity.launchmode.RecyclerViewTest" />
         <activity
             android:name=".activity.CustomViewActivity"
+            android:hardwareAccelerated="true"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />

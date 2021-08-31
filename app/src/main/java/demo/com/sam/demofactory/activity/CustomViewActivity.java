@@ -17,6 +17,7 @@ import demo.com.sam.demofactory.view.RoundRectMask;
 import demo.com.sam.demofactory.view.RectRoundView;
 import demo.com.sam.demofactory.view.ScaleView;
 import demo.com.sam.demofactory.view.ShadowView;
+import demo.com.sam.demofactory.view.StrokeCircleView;
 
 
 public class CustomViewActivity extends AppCompatActivity {
@@ -26,7 +27,7 @@ public class CustomViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 //        testRoundCorners();
 
-        setContentView(testPaintStyleTest());
+        setContentView(testCircleStore());
 
 
 //        String androidID = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
@@ -55,8 +56,6 @@ public class CustomViewActivity extends AppCompatActivity {
         view.setCorners(true,true,true,true);
         setLayout(view);
         return view;
-
-
     }
     private View testShadow() {
         ShadowView shadowView = new ShadowView(this);
@@ -64,7 +63,12 @@ public class CustomViewActivity extends AppCompatActivity {
         return shadowView;
     }
 
-    private View testSacleView() {
+    private View testCircleStore() {
+        View view = new StrokeCircleView(this);
+        view.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        return view;
+    }
+    private View testScaleView() {
         ScaleView view = new ScaleView(this);
         setLayout(view);
         return view;

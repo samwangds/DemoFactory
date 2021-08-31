@@ -96,15 +96,26 @@ public class PaintStyleTest extends View {
         super.onDraw(canvas);
 
         offsetY = 0;
-        drawRect(canvas, paint);
-        drawRect(canvas, paintWithStroke);
-        drawRect(canvas, paintFillAndStroke);
-        drawRect(canvas, paintFillAndStrokeWidth);
-        drawRect(canvas, paintFill);
+//        drawRect(canvas, paint);
+//        drawRect(canvas, paintWithStroke);
+//        drawRect(canvas, paintFillAndStroke);
+//        drawRect(canvas, paintFillAndStrokeWidth);
+//        drawRect(canvas, paintFill);
 
 
+        //TEST line
+        paintLine.setStrokeWidth(2);
+        canvas.drawLine(0, 500, getWidth(), 500, paintLine );
 
+        drawLine(canvas, paintWithStroke);
+        drawLine(canvas, paintFillAndStroke);
+        drawLine(canvas, paintFillAndStrokeWidth);
+        drawLine(canvas, paintFill);
 
+    }
+    private void drawLine(Canvas canvas, Paint paint) {
+        canvas.drawLine(offsetY, 500, offsetY + 50, 500, paint );
+        offsetY += 100;
 
     }
 
