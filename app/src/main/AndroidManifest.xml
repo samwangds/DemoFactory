@@ -63,6 +63,7 @@
         </activity>
         <activity android:name=".activity.livedata.ActivityA" />
         <activity android:name=".activity.livedata.ActivityB" />
+        <activity android:name=".activity.TestDialogFragmentActivity" />
 
         <service android:name=".LifecycleTestService" />
     </application>

@@ -26,6 +26,7 @@ import java.util.List;
 
 import demo.com.sam.demofactory.activity.ActivityLifeCycleTest;
 import demo.com.sam.demofactory.activity.CustomViewActivity;
+import demo.com.sam.demofactory.activity.TestDialogFragmentActivity;
 import demo.com.sam.demofactory.activity.launchmode.ActivityA;
 import demo.com.sam.demofactory.activity.launchmode.RecyclerViewTest;
 import demo.com.sam.demofactory.service.NoZuoNoDieService;
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView.setAdapter(new MyAdapter());
 
-        startService(new Intent(this, NoZuoNoDieService.class));
+//        startService(new Intent(this, NoZuoNoDieService.class));
 
 
     }
@@ -110,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
             data.add(new Pair<String, Class>("RecyclerView 测试 ", RecyclerViewTest.class));
             data.add(new Pair<String, Class>("自定义view ", CustomViewActivity.class));
             data.add(new Pair<String, Class>("liveData ", demo.com.sam.demofactory.activity.livedata.ActivityA.class));
+            data.add(new Pair<String, Class>("TestDialogFragmentActivity", TestDialogFragmentActivity.class));
         }
 
         @Override
