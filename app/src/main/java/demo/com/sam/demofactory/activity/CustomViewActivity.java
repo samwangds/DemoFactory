@@ -5,6 +5,7 @@ import android.graphics.PointF;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -18,6 +19,7 @@ import demo.com.sam.demofactory.view.RectRoundView;
 import demo.com.sam.demofactory.view.ScaleView;
 import demo.com.sam.demofactory.view.ShadowView;
 import demo.com.sam.demofactory.view.StrokeCircleView;
+import demo.com.sam.demofactory.view.SwordLoadingView;
 
 
 public class CustomViewActivity extends AppCompatActivity {
@@ -27,7 +29,7 @@ public class CustomViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 //        testRoundCorners();
 
-        setContentView(testCircleStore());
+        setContentView(swordLoadingView());
 
 
 //        String androidID = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
@@ -35,6 +37,16 @@ public class CustomViewActivity extends AppCompatActivity {
 //        Log.e(" sam ", "onCreate: " + androidID + "," + id);
 
     }
+
+    private View swordLoadingView() {
+        SwordLoadingView view = new SwordLoadingView(this);
+        FrameLayout.LayoutParams fl = new FrameLayout.LayoutParams(Utils.getDp(200), Utils.getDp(200));
+        fl.gravity = Gravity.CENTER;
+        view.setLayoutParams(fl);
+        view.getAnim().start();
+        return view;
+    }
+
 
     /**
      * 测试两种圆角绘制的差异
